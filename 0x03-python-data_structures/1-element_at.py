@@ -1,4 +1,4 @@
-#!/usr/bin/pythom3
+#!/usr/bin/python3
 # his program prints a list at a particular index
 if __name__ == "__main__":
     def element_at(my_list, idx):
