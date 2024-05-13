@@ -1,0 +1,24 @@
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_intger(1 , 2)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'add_intger' is not defined
+>>> add_integer(0, 1)
+1
+>>> add_integer(1, -2)
+-1
+>>> add_integer(1)
+99
+>>> add_integer(a, b)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
+>>> add_integer(hello, 20)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'hello' is not defined
+>>> add_integer(20, hello)
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'hello' is not defined
+>>> 
