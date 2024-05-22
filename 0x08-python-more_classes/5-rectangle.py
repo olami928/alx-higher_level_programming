@@ -101,4 +101,4 @@ class Rectangle:
 
     def __del__(self):
         """Deletes the insrance of rectangle and prints a messgae"""
-        print("Bye Rectangle...")
+        print("Bye rectangle...")
