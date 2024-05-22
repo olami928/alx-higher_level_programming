@@ -5,10 +5,12 @@
 class Rectangle:
     """A class Rectangle that defines a rectangle.
 
+
     Attributes:
         width (int): The width of the rectangle.
         height (int): The height of the rectangle.
     """
+    number_of_instances = 0
 
     def __init__(self, width=0, height=0):
         """Initializes the rectangle with width and height.
@@ -19,6 +21,7 @@ class Rectangle:
         """
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -98,3 +101,8 @@ class Rectangle:
         """
 
         return ("Rectangle({}, {})".format(self.width, self.height))
+
+    def __del__(self):
+        """Deletes the insrance of rectangle and prints a messgae"""
+        print("Bye Rectangle...")
+        Rectangle.number_of_instances -= 1
