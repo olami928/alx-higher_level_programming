@@ -107,3 +107,37 @@ class Rectangle:
         """Deletes the insrance of rectangle and prints a messgae"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+
+    def bigger_or_equal(rect_1, rect_2):
+        """checks if the two rectangle are equal, returns
+
+            rect_1 if both are equal.
+
+
+            Args:
+                rect_1: the first rectangle
+                rect_2: the second rectangle
+
+
+            Raises:
+                TypeError: if they are not instances of Rectangle
+        """
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be instance of Rectangle")
+        else:
+            if rect_1 == rect_2:
+                return(rect_1)
+
+    @classmethod
+    def square(cls, size=0):
+        """sets the size, height to be equal to each other
+
+
+            Args:
+                cls: the classmethod
+                size: the Rectangle in size
+        """
+        return cls(size, size)
