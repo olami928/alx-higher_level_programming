@@ -2,11 +2,6 @@
 """This code defines a list"""
 
 
-class list:
-
-    """This is a class description"""
-    pass
-
 
 class Mylist(list):
 
@@ -14,4 +9,4 @@ class Mylist(list):
 
     def print_sorted(self):
         """This program prints the list"""
-        print(self.list)
+        print(sorted.self)
