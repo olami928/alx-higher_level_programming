@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This code shows a locked class."""
+
+
 class LockedClass:
     """
     A class that allows only an instance attribute called 'first_name'.
