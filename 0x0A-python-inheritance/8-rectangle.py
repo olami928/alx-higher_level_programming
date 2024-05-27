@@ -1,11 +1,9 @@
 #!/usr/bin/python3
+"""
+    This module inheririts from 7-base_geometry
+    and implements its functions
+"""
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
-
-"""
-===================================
-module with class Rectangle
-===================================
-"""
 
 
 class Rectangle(BaseGeometry):
