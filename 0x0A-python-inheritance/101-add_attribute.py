@@ -1,3 +1,7 @@
+#!/usr/bin/python3
+"""This program adds an attribute to an object if possible."""
+
+
 def add_attribute(obj, name, value):
     """Add a new attribute to an object if possible.
 
