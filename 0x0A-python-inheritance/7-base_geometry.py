@@ -4,7 +4,6 @@
 
 class BaseGeometry:
     """This is the class defintion"""
-    pass
 
     def area(self):
         """This is an istance of BaseGeometry"""
@@ -26,9 +25,7 @@ class BaseGeometry:
 
 
         """
-        if isinstance(value, int):
-            raise TypeError("<name> must be an integer")
+        if not isinstance(value, int):
+            raise TypeError(f"{name} must be an integer")
         if value <= 0:
-            raise ValueError("<name> must be greater than 0")
-        else:
-            self.name = value
+            raise ValueError(f"{name} must be greater than 0")
