@@ -8,4 +8,4 @@ import json
 def load_from_json_file(filename):
     """This code creates an object."""
     with open(filename, 'r', encoding='UTF-8') as f:
-        json.load(f)
+        return (json.load(f))
