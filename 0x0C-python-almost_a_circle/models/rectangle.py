@@ -12,10 +12,10 @@ class Rectangle(Base):
         """This is the initialization of the Recatngle class."""
 
         super().__init__(id)
-        self.__width = width
-        self.__height = height
-        self.__x = x
-        self.__y = y
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
 
     @property
     def width(self):
@@ -72,7 +72,7 @@ class Rectangle(Base):
         return (self.__x)
 
     @y.setter
-    def y(self. value):
+    def y(self, value):
         """sets the value of y of the rectangle."""
 
         if not isinstance(value, int):
@@ -89,16 +89,10 @@ class Rectangle(Base):
     def display(self):
         """this code prints the rectangle instance with the character '#'."""
 
-        rows = []
-
-        if self.__width or self.__height == 0:
-            return ""
-        else:
-            for i in range(self.height):
-                rows.append("#" * self.width)
-            return ('\n'.join(rows))
+        for i in range(self.height):
+            print("#" * self.width)
 
     def __str__(self):
         """This is a string representation of rectangle."""
 
-        return ("[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height))
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
