@@ -13,5 +13,5 @@ if __name__ == "__main__":
     html = response.text
 
     print("Body response:")
-    print(f"\t- type {type(html)}")
+    print(f"\t- type: {type(html)}")
     print(f"\t- content: {html}")
