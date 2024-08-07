@@ -20,10 +20,10 @@ request.get(url, (error, response, body) => {
     if (response.statusCode === 200) {
         const film = JSON.parse(body);
         const characters = film.characters;
-
+        const characterNames = [];
         let completedRequests = 0;
 
-        characters.forEach(characterUrl => {
+        characters.forEach((characterUrl, index) => {
             request.get(characterUrl, (charError, charResponse, charBody) => {
                 if (charError) {
                     console.error(`Error: ${charError.message}`);
@@ -32,7 +32,7 @@ request.get(url, (error, response, body) => {
 
                 if (charResponse.statusCode === 200) {
                     const character = JSON.parse(charBody);
-                    console.log(character.name);
+                    characterNames[index] = character.name;
                 } else {
                     console.log(`Error: ${charResponse.statusCode}`);
                 }
@@ -40,6 +40,7 @@ request.get(url, (error, response, body) => {
                 completedRequests++;
 
                 if (completedRequests === characters.length) {
+                    characterNames.forEach(name => console.log(name));
                 }
             });
         });
@@ -47,4 +48,3 @@ request.get(url, (error, response, body) => {
         console.log(`Error: ${response.statusCode}`);
     }
 });
-
