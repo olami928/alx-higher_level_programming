@@ -5,46 +5,46 @@ const request = require('request');
 const movieId = process.argv[2];
 
 if (!movieId) {
-    console.log('Usage: ./101-starwars_characters.js <Movie ID>');
-    process.exit(1);
+  console.log('Usage: ./101-starwars_characters.js <Movie ID>');
+  process.exit(1);
 }
 
 const url = `https://swapi.dev/api/films/${movieId}/`;
 
 request.get(url, (error, response, body) => {
-    if (error) {
-        console.error(`Error: ${error.message}`);
-        return;
-    }
+  if (error) {
+    console.error(`Error: ${error.message}`);
+    return;
+  }
 
-    if (response.statusCode === 200) {
-        const film = JSON.parse(body);
-        const characters = film.characters;
-        const characterNames = [];
-        let completedRequests = 0;
+  if (response.statusCode === 200) {
+    const film = JSON.parse(body);
+    const characters = film.characters;
+    const characterNames = [];
+    let completedRequests = 0;
 
-        characters.forEach((characterUrl, index) => {
-            request.get(characterUrl, (charError, charResponse, charBody) => {
-                if (charError) {
-                    console.error(`Error: ${charError.message}`);
-                    return;
-                }
+    characters.forEach((characterUrl, index) => {
+      request.get(characterUrl, (charError, charResponse, charBody) => {
+        if (charError) {
+          console.error(`Error: ${charError.message}`);
+          return;
+        }
 
-                if (charResponse.statusCode === 200) {
-                    const character = JSON.parse(charBody);
-                    characterNames[index] = character.name;
-                } else {
-                    console.log(`Error: ${charResponse.statusCode}`);
-                }
+        if (charResponse.statusCode === 200) {
+          const character = JSON.parse(charBody);
+          characterNames[index] = character.name;
+        } else {
+          console.log(`Error: ${charResponse.statusCode}`);
+        }
 
-                completedRequests++;
+        completedRequests++;
 
-                if (completedRequests === characters.length) {
-                    characterNames.forEach(name => console.log(name));
-                }
-            });
-        });
-    } else {
-        console.log(`Error: ${response.statusCode}`);
-    }
+        if (completedRequests === characters.length) {
+          characterNames.forEach(name => console.log(name));
+        }
+      });
+    });
+  } else {
+    console.log(`Error: ${response.statusCode}`);
+  }
 });
